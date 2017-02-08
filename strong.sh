@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd $HOME/strong
+cd $HOME/strong2
 
 install() {
 	    cd tg
