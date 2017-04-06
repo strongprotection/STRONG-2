@@ -27,7 +27,7 @@ function print_logo() {
 	echo -e "\033[38;5;600m"
 	echo -e "STRONGPROTECTION ROBOT ANTI LINK AND ANTI SPAM"
 	echo -e ""
-	echo -e ""
+	echo -e "BY BEHNAM MARZJI"
 	echo -e ""
 	echo -e "\n\e[36m"
 }
@@ -36,8 +36,8 @@ function logo_play() {
     declare -A txtlogo
     seconds="0.010"
     txtlogo[1]=""
-    txtlogo[2]=""
-    txtlogo[3]="STRONGPROTECTION ROBOT ANTI LINK AND ANTI SPAM"
+    txtlogo[2]="STRONGPROTECTION ROBOT ANTI LINK AND ANTI SPAM"
+    txtlogo[3]="BY BEHNAM MARZJI"
     txtlogo[4]=""
     printf "\033[38;5;600m\t"
     for i in ${!txtlogo[@]}; do
@@ -67,7 +67,7 @@ if [ ! -f ./tg/tgcli ]; then
    echo -e ""
    echo -e ""
    echo -e "STRONGPROTECTION ROBOT ANTI LINK AND ANTI SPAM"
-   echo -e ""
+   echo -e "BY BEHNAM MARZJI"
    echo -e "\033[0;00m"
    echo -e "\e[36m"
    logo_play
