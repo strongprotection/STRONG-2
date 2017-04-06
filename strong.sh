@@ -51,7 +51,7 @@ green 'Do you want me to install? (Yy/Nn): '
   case "$install" in
     Y|y)
       echo 'Installing update and updating'
-        sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+      sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
 		sudo apt-get install g++-4.7 -y c++-4.7 -y
 		sudo apt-get update
 		sudo apt-get upgrade
@@ -65,7 +65,6 @@ green 'Do you want me to install? (Yy/Nn): '
   esac
 }
 
-<<<<<<< HEAD
 telegram-cli() {
 red 'Do you want me to install the telegram-cli? (Yy/Nn): '
   read -rp ' ' install
@@ -85,34 +84,6 @@ echo "Creat folder tg"
 
 commands() {
   cat <<EOF
-=======
-function print_logo() {
-	echo -e "\033[38;5;600m"
-	echo -e "STRONGPROTECTION ROBOT ANTI LINK AND ANTI SPAM"
-	echo -e ""
-	echo -e "BY BEHNAM MARZJI"
-	echo -e ""
-	echo -e "\n\e[36m"
-}
-
-function logo_play() {
-    declare -A txtlogo
-    seconds="0.010"
-    txtlogo[1]=""
-    txtlogo[2]="STRONGPROTECTION ROBOT ANTI LINK AND ANTI SPAM"
-    txtlogo[3]="BY BEHNAM MARZJI"
-    txtlogo[4]=""
-    printf "\033[38;5;600m\t"
-    for i in ${!txtlogo[@]}; do
-        for x in `seq 0 ${#txtlogo[$i]}`; do
-            printf "${txtlogo[$i]:$x:1}"
-            sleep $seconds
-        done
-        printf "\n\t"
-    done
-    printf "\n"
-}
->>>>>>> origin/master
 
   Usage: $0 [options]
 
@@ -125,7 +96,6 @@ function logo_play() {
 EOF
 }
 
-<<<<<<< HEAD
 if [ "$1" = "install" ]; then
 logo
 logo1
@@ -159,19 +129,4 @@ else
 logo
 logo1
 commands
-=======
-   print_logo
-   echo -e "\033[38;5;208m"
-   echo -e ""
-   echo -e ""
-   echo -e ""
-   echo -e "STRONGPROTECTION ROBOT ANTI LINK AND ANTI SPAM"
-   echo -e "BY BEHNAM MARZJI"
-   echo -e "\033[0;00m"
-   echo -e "\e[36m"
-   logo_play
-   #sudo service redis-server restart
-   #./tg/tgcli -s ./bot/bot.lua -l 1 -E $@
-   ./tg/tgcli -s ./bot/bot.lua $@
->>>>>>> origin/master
 fi
