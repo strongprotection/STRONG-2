@@ -1,10 +1,57 @@
-#!/usr/bin/env bash
+THIS_DIR=$(cd $(dirname $0); pwd)
+cd $THIS_DIR
 
-cd $HOME/strong2
+# echo the color
+gray() {
+  printf '\e[1;30m%s\n\e[0;39;49m' "$@"
+}
+red() {
+  printf '\e[1;31m%s\n\e[0;39;49m' "$@"
+}
+green() {
+  printf '\e[1;32m%s\n\e[0;39;49m' "$@"
+}
+brown() {
+  printf '\e[1;33m%s\n\e[0;39;49m' "$@"
+}
+blue() {
+  printf '\e[1;34m%s\n\e[0;39;49m' "$@"
+}
+pink() {
+  printf '\e[1;35m%s\n\e[0;39;49m' "$@"
+}
+paleblue() {
+  printf '\e[1;36m%s\n\e[0;39;49m' "$@"
+}
+white() {
+  printf '\e[1;37m%s\n\e[0;39;49m' "$@"
+}
+
+function logo() {
+green " ___  ____  ____   ____          ____ "
+green "|___   ||  |____| |    | | \  | |  __ "           
+white " ___|  ||  |  \   |____| |  \ | |_ __|"
+red   "STRONGPROTECTION ROBOT BY BEHNAM MARZJI"
+}
+function logo1() {
+green " ___  ____  ____   ____          ____ "
+green "|___   ||  |____| |    | | \  | |  __ "           
+white " ___|  ||  |  \   |____| |  \ | |_ __|"
+red   "STRONGPROTECTION ROBOT "
+red   "STRONGPROTECTION ROBOT BY BEHNAM MARZJI"
+}
+update() {
+  git pull
+  install 
+}
 
 install() {
-	    cd tg
-		sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+green 'Do you want me to install? (Yy/Nn): '
+  read -rp ' ' install
+  case "$install" in
+    Y|y)
+      echo 'Installing update and updating'
+      sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
 		sudo apt-get install g++-4.7 -y c++-4.7 -y
 		sudo apt-get update
 		sudo apt-get upgrade
@@ -13,65 +60,73 @@ install() {
 		sudo apt-get install tmux -y
 		sudo apt-get install libstdc++6 -y
 		sudo apt-get install lua-lgi -y
-		sudo apt-get install libnotify-dev -y
-		sudo service redis-server restart
-		wget https://valtman.name/files/telegram-cli-1222
-		mv telegram-cli-1222 tgcli
-		chmod +x tgcli
-		cd ..
-		chmod +x bot
-		chmod +x tg
+		sudo apt-get install libnotify-dev
+      echo ''
+  esac
 }
 
-function print_logo() {
-	echo -e "\033[38;5;600m"
-	echo -e ""
-	echo -e "STRONGPROTECTION ANTI SPAM AND ANTI LINK ROBOT"
-	echo -e ""
-	echo -e "BY BEHNAM MARZJI"
-	echo -e "\n\e[36m"
+telegram-cli() {
+red 'Do you want me to install the telegram-cli? (Yy/Nn): '
+  read -rp ' ' install
+  case "$install" in
+    Y|y)
+ echo "telegram-cli-1222 has been downloading..."
+ mkdir -p "$THIS_DIR"/tg
+echo "Creat folder tg"
+ cd tg
+ wget "https://valtman.name/files/telegram-cli-1222"
+ mv telegram-cli-1222 tgcli
+ echo "Chmoded tgcli"
+ sudo chmod +x tgcli
+ cd ..
+ esac
 }
 
-function logo_play() {
-    declare -A txtlogo
-    seconds="0.010"
-    txtlogo[1]=""
-    txtlogo[2]="STRONGPROTECTION ANTI SPAM AND ANTI LINK ROBOT"
-    txtlogo[3]=""
-    txtlogo[4]="BY BEHNAM MARZJI"
-    printf "\033[38;5;600m\t"
-    for i in ${!txtlogo[@]}; do
-        for x in `seq 0 ${#txtlogo[$i]}`; do
-            printf "${txtlogo[$i]:$x:1}"
-            sleep $seconds
-        done
-        printf "\n\t"
-    done
-    printf "\n"
+commands() {
+  cat <<EOF
+
+  Usage: $0 [options]
+
+    Options:
+      install           Install ${0##*/}
+      update            Update ${0##*/}
+      start             Start ${0##*/}
+	  on                Dont off your bot
+
+EOF
 }
 
 if [ "$1" = "install" ]; then
-  install
-  else
-
+logo
+logo1
+install
+telegram-cli
+elif [ "$1" = "update" ]; then
+logo
+logo1
+update
+elif [[ "$1" = "on" ]]; then
 if [ ! -f ./tg/tgcli ]; then
-    echo "tg not found"
-    echo "Run $0 install"
-    exit 1
- fi
-
-
-   print_logo
-   echo -e "\033[38;5;208m"
-   echo -e ""
-   echo -e "STRONGPROTECTION ANTI SPAM AND ANTI LINK ROBOT"
-   echo -e ""
-   echo -e ""
-   echo -e "BY BEHNAM MARZJI"
-   echo -e "\033[0;00m"
-   echo -e "\e[36m"
-   logo_play
-   #sudo service redis-server restart
-   #./tg/tgcli -s ./bot/bot.lua -l 1 -E $@
-   ./tg/tgcli -s ./bot/bot.lua $@
+echo "tg not found"
+echo "Run $0 install"
+exit 1
+fi
+logo
+logo1
+while true; do
+screen ./tg/tgcli -s ./bot/bot.lua 
+done
+elif [[ "$1" = "start" ]]; then
+if [ ! -f ./tg/tgcli ]; then
+echo "tg not found"
+echo "Run $0 install"
+exit 1
+fi
+logo
+logo1
+./tg/tgcli -s ./bot/bot.lua 
+else
+logo
+logo1
+commands
 fi
