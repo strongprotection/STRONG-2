@@ -1,0 +1,4 @@
+while true; do
+./STRONG startS
+sleep 7
+done
