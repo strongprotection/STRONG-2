@@ -112,7 +112,7 @@ for i in {0..7}; do
 printf -v $j$i %b "\e[${!j}${i}m"
 done
 done
-echo -e "\e[100m                           ( StrongProtection Running )                   \e[00;37;40m"
+echo -e "\e[100m                 ( StrongProtection Running )                 \e[00;37;40m"
 
 bld=$'\e[1m'
 rst=$'\e[0m'
@@ -123,10 +123,10 @@ cat << EOF
  $f1▀ ▀▄▄ ▄▄▀ ▀   $f2 ▀█▄ ▀▀ ▄█▀    $f3▀▄    ▄▀   $f4▀ ▀▄▄ ▄▄▀ ▀   $f5 ▀█▄ ▀▀ ▄█▀    $f6▀▄    ▄▀$rst
  
 EOF
-echo"                           ( PROTECTION LAUNCHER )"
-echo"                           ( DEVELOPER : BEHNAM MARZJI )"
-echo"                           ( TELEGRAM ID : @Sudo_StrongProtection )"
-echo""
+echo "                 ( PROTECTION LAUNCHER )"
+echo "                 ( DEVELOPER : BEHNAM MARZJI )"
+echo "                 ( TELEGRAM ID : @Sudo_StrongProtection )"
+echo ""
 cat << EOF
  $bld$f1▄ ▀▄   ▄▀ ▄   $f2 ▄▄▄████▄▄▄    $f3  ▄██▄     $f4▄ ▀▄   ▄▀ ▄   $f5 ▄▄▄████▄▄▄    $f6  ▄██▄  $rst
  $bld$f1█▄█▀███▀█▄█   $f2███▀▀██▀▀███   $f3▄█▀██▀█▄   $f4█▄█▀███▀█▄█   $f5███▀▀██▀▀███   $f6▄█▀██▀█▄$rst
@@ -208,8 +208,6 @@ lua Api/api.lua
 }
 autoRun(){
 screen ./PROTECTION
-}
-autoRunHepler(){
 screen ./Api/Bash
 }
 warning() {
