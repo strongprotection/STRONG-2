@@ -1,9 +1,3 @@
-# **CerNerCompany** #
-
-<div align="center"><a href="https://t.me/CerNerCompany"><img src="http://s8.picofile.com/file/8312881426/photo_2017_09_19_11_51_39.jpg" width="300"></a></div>
-
-
-
 [![Library](https://img.shields.io/badge/TDLib-beta-brightgreen.svg)](https://core.telegram.org/tdlib)
 [![Telegram-bot](https://img.shields.io/badge/TDCli-Bitbucket-green.svg)](https://valtman.name/telegram-bot)
 [![Lua](https://img.shields.io/badge/Lua-5.2-blue.svg)](https://www.lua.org/)
@@ -28,25 +22,19 @@ If you are not able to install the bot in Ubuntu 14, an upgrade to Ubuntu 16.04 
 
 After installing the dependencies, lets install the bot:
 ```bash
- git clone https://github.com/CerNerCompany/Anti-Spam
+ git clone https://github.com/strongprotection/STRONG-2
  cd Anti-*
- chmod +x C
- ./C install
- ./C config
- ./C login-Cli # Will ask you for a phone number & confirmation code.
- ./C login-Api
- ./C Change-Login #Changed Login
- ./C start
- ./C auto-run
+ chmod +x STRONG
+ ./STRONG install
+ ./STRONG config
+ ./STRONG login-Cli # Will ask you for a phone number & confirmation code.
+ ./STRONG login-Api
+ ./STRONG Change-Login #Changed Login
+ ./STRONG start
+ ./STRONG auto-run
 ```
-Developer:
-[Amir Bagheri](https://github.com/Codelua)
+Developer : [BEHNAM MARZJI](https://t.me/Sudo_StrongProtection)
 
-Company Channels:
---------------------
-[CerNer Company](https://github.com/CerNerCompany)
-
--------------------
-More information [CerNer Company](https://t.me/joinchat/FbE8wFF2ImkSiaZbvFem4w)
+Company Channels : [StrongProtection](https://t.me/joinchat/AAAAAEkVhdpKq9hcZbNrPQ)
 
 
