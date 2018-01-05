@@ -203,7 +203,7 @@ printf "${TXT}"
 printf "\n"
 }
 run-heplerBot() {
-lua Api/api.lua
+lua api.lua
 }
 autoRun(){
 screen ./CLILUNCH
