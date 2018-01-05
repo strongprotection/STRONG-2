@@ -207,7 +207,7 @@ lua api.lua
 }
 autoRun(){
 screen ./CLILUNCH
-screen ./APILUNCH
+screen lua api.lua
 }
 autoRunHepler(){
 screen ./APILUNCH
