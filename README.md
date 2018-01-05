@@ -22,16 +22,16 @@ If you are not able to install the bot in Ubuntu 14, an upgrade to Ubuntu 16.04 
 
 After installing the dependencies, lets install the bot:
 ```bash
- git clone https://github.com/strongprotection/STRONG-2
- cd Anti-*
- chmod +x STRONG
- ./STRONG install
- ./STRONG config
- ./STRONG login-Cli # Will ask you for a phone number & confirmation code.
- ./STRONG login-Api
- ./STRONG Change-Login #Changed Login
- ./STRONG start
- ./STRONG auto-run
+git clone https://github.com/strongprotection/STRONG-2
+cd STRONG-2
+chmod +x STRONG
+./STRONG install
+./STRONG config
+./STRONG login-Cli # Will ask you for a phone number & confirmation code.
+./STRONG login-Api
+./STRONG Change-Login #Changed Login
+./STRONG start
+./STRONG auto-run
 ```
 Developer : [BEHNAM MARZJI](https://t.me/Sudo_StrongProtection)
 
