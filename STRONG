@@ -1,5 +1,4 @@
 #!/bin/bash
-#Launch created by Amir Bagheri
 tgcli_version="171211-nightly"
 luarocks_version=2.4.2
 lualibs=(
@@ -64,40 +63,39 @@ done
 get_sub() {
 local flag=false c count cr=$'\r' nl=$'\n'
 while IFS='' read -d '' -rn 1 c; do
- if $flag; then
- printf '%c' "$c"
-  else
+if $flag; then
+printf '%c' "$c"
+else
 if [[ $c != $cr && $c != $nl ]]; then
-  count=0
- else
+count=0
+else
 ((count++))
- if ((count > 1)); then
+if ((count > 1)); then
 flag=true
 fi
 fi
 fi
- done
+done
 }
 make_progress() {
 exe=`lua <<-EOF
-    print(tonumber($1)/tonumber($2)*100)
-EOF
-`
-    echo ${exe:0:4}
+print(tonumber($1)/tonumber($2)*100)
+EOF`
+echo ${exe:0:4}
 }
- get_tgcli_version() {
-	echo "$tgcli_version"
+get_tgcli_version() {
+echo "$tgcli_version"
 }
- download_libs_lua() {
-    if [[ ! -d "logs" ]]; then mkdir logs; fi
-    if [[ -f "logs/logluarocks_${today}.txt" ]]; then rm logs/logluarocks_${today}.txt; fi
-    local i
-    for ((i=0;i<${#lualibs[@]};i++)); do
-        printf "\r\33[2K"
-        printf "\r• Installing Luarocks : Wait... [`make_progress $(($i+1)) ${#lualibs[@]}`%%] [$(($i+1))/${#lualibs[@]}] ${lualibs[$i]}"
-        ./.luarocks/bin/luarocks install ${lualibs[$i]} &>> logs/logluarocks_${today}.txt
-    done
-    sleep 0.2
+download_libs_lua() {
+if [[ ! -d "logs" ]]; then mkdir logs; fi
+if [[ -f "logs/logluarocks_${today}.txt" ]]; then rm logs/logluarocks_${today}.txt; fi
+local i
+for ((i=0;i<${#lualibs[@]};i++)); do
+printf "\r\33[2K"
+printf "\r• Installing Luarocks : Wait... [`make_progress $(($i+1)) ${#lualibs[@]}`%%] [$(($i+1))/${#lualibs[@]}] ${lualibs[$i]}"
+./.luarocks/bin/luarocks install ${lualibs[$i]} &>> logs/logluarocks_${today}.txt
+done
+sleep 0.2
 sleep 0.2
 printf "\n• LogFile Created : $PWD/logs/logluarocks_${today}.txt\nDone √\n"
 rm -rf luarocks-2.2.2*
@@ -133,15 +131,15 @@ cat << EOF
  $bld$f1 ▄▀     ▀▄    $f2▄▄▀▀ ▀▀ ▀▀▄▄   $f3▄▀▄▀▀▄▀▄   $f4 ▄▀     ▀▄    $f5▄▄▀▀ ▀▀ ▀▀▄▄   $f6▄▀▄▀▀▄▀▄$rst
 EOF
 }
- config() {
-    dir=$PWD
-    wget http://luarocks.org/releases/luarocks-${luarocks_version}.tar.gz &>/dev/null
-    tar zxpf luarocks-${luarocks_version}.tar.gz &>/dev/null
-    cd luarocks-${luarocks_version}
-    if [[ ${1} == "--no-null" ]]; then
-        ./configure --prefix=$dir/.luarocks --sysconfdir=$dir/.luarocks/luarocks --force-config
-        make bootstrap
-    else
+config() {
+dir=$PWD
+wget http://luarocks.org/releases/luarocks-${luarocks_version}.tar.gz &>/dev/null
+tar zxpf luarocks-${luarocks_version}.tar.gz &>/dev/null
+cd luarocks-${luarocks_version}
+if [[ ${1} == "--no-null" ]]; then
+./configure --prefix=$dir/.luarocks --sysconfdir=$dir/.luarocks/luarocks --force-config
+make bootstrap
+else
 ./configure --prefix=$dir/.luarocks --sysconfdir=$dir/.luarocks/luarocks --force-config &>/dev/null
 make bootstrap &>/dev/null
 fi
@@ -167,7 +165,7 @@ launch() {
 ./tg | grep -v "{"
 }
 resetlogin() {
- rm -rf $HOME/.telegram-bot
+rm -rf $HOME/.telegram-bot
 }
 StrONG(){
 mkdir $HOME/.telegram-bot; cat <<EOF > $HOME/.telegram-bot/config
