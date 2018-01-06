@@ -53,6 +53,7 @@ sudo apt-get install lua-lgi -y
 sudo apt-get install libnotify-dev -y
 chmod +x bot
 chmod +x CLILUNCH
+chmod +x APILUNCH
 }
 play() {
 local i
