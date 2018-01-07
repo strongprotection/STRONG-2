@@ -1,4 +1,4 @@
 while true; do
-./STRONG launch
+./STRONG startS
 sleep 7
 done
