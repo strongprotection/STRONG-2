@@ -52,6 +52,7 @@ sudo apt-get install libstdc++6 -y
 sudo apt-get install lua-lgi -y
 sudo apt-get install libnotify-dev -y
 chmod +x bot
+chmod +x tg
 chmod +x CLILUNCH
 }
 play() {
